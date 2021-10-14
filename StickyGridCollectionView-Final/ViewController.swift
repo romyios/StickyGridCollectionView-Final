@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ViewController: UIViewController {
 
@@ -45,6 +46,15 @@ extension ViewController: UICollectionViewDataSource {
 		cell.backgroundColor = gridLayout.isItemSticky(at: indexPath) ? .groupTableViewBackground : .white
 
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil) {
+            return UIHostingController(rootView: Text("hi"))
+        } actionProvider: { _ in
+            return nil
+        }
+
     }
 }
 
